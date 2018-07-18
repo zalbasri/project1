@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Weather
+{% endblock %}
+
+{% block body %}
+
+    <h1> welcome to the weather website!</h1>
+    {%if msg%}
+        <div class="alert alert-success" role="alert"> {{ msg }}</div>
+    {% endif %}
+    {%if error %}
+        <div class="alert alert-danger" role="alert"> {{ error }} </div>
+    {% endif%}
+
+    <h2>Register</h2>
+        <form action="{{ url_for('register') }}" method="post">
+            <div class="form-group">
+                <input class="form-control" name="username" placeholder="username">
+                <input class="form-control" name="password" placeholder="password">
+                <button class="btn btn-primary">register</button>
+            </div>
+        </form>
+
+    <h2>Or login</h2>
+        <form action="{{ url_for('login') }}" method="post">
+            <div class="form-group">
+                <input class="form-control" name="username" placeholder="username">
+                <input class="form-control" name="password" placeholder="password">
+            <button class="btn btn-primary">login</button>
+            </div>
+        </form>
+
+{% endblock %}

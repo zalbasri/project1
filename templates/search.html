@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Search Results
+{% endblock %}
+
+{% block body %}
+
+  {% if no_results %}
+    <h1>No results found!</h1>
+    <h2>{{ msg }}</h2>
+  {% else %}
+    <h1>Search results</h1>
+      <ul class="list-group">
+        {% for location in locations %}
+          <li class="list-group-item"><a href="{{ url_for('location', zip=location.zip) }}">{{location.city}}, {{location.zip}}</a></li>
+        {% endfor %}
+      </ul>
+  {% endif %}
+
+{% endblock %}
